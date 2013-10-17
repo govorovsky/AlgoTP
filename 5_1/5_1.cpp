@@ -56,13 +56,12 @@ int main(int argc, const char *argv[]) {
     cin >> n;
     if(n==0) cout << "NO";
     else {
-    Queue Myq(1);
+    Queue Myq;
     for(int i = 0; i < n; i++) {
         cin >> a >> b;
         if(a==3) Myq.push(b);
         else if(a==2) { 
             int res = Myq.pop();
-         //   cout << res << "\n";
             if (b != res) {
             cout << "NO";
             return 0;
