@@ -61,17 +61,12 @@ bool isAnagram(string& str1, string& str2, Stack& st) {
         }
 
     }
-    if(j < str2.size()) {
-        while(!st.empty()) {
+    while(!st.empty()) {
             if((st.pop()) != str2[j++]) {
                 return 0;
             }
         }
-       return 1; 
-    } else {
-       return 1;
-    }
-
+    return 1; 
 }
 
 int main(int argc, const char *argv[])
