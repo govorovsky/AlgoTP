@@ -9,20 +9,20 @@ struct points{
     int y; 
 };
 
-int x0;
+int x_0; // точка, из которой будут идти лучи
 int y_0;
 bool xy_less(const points &lhs, const points &rhs) {
     // сортируем по координатам x y
        if(lhs.x == rhs.x)
-        return (lhs.y > rhs.y);
+          return (lhs.y > rhs.y);
        return (lhs.x > rhs.x);
 }
 
 bool atan_less(const points &lhs, const points &rhs){
-    // сортируем по арктангенсам лучей из точки x0 y0 до всех остальных точек
+    // сортируем по арктангенсам лучей из точки x_0 y0 до всех остальных точек
         if(lhs.y == rhs.y)
           return (lhs.x > rhs.x);
-        return (atan((double((lhs.y) - y_0)/((lhs.x) - x0))) < atan((double((rhs.y) - y_0)/((rhs.x) - x0))));
+        return (atan((double((lhs.y) - y_0) / ((lhs.x) - x_0))) < atan((double((rhs.y) - y_0) / ((rhs.x) - x_0))));
 }
 
 void insertion_sort(std::vector<points>& a, bool(*comp)(const points&, const points&)) {
@@ -53,13 +53,13 @@ int main(int argc, const char *argv[])
     int num;
     std::vector<points> nums;
     std::cin >> num;
-    for(int i=0;i<num;i++) {
+    for (int i = 0; i < num; i++) {
      std::cin >> c_pair.x >> c_pair.y;
         nums.push_back(c_pair);
     }
     insertion_sort(nums,xy_less);
     std::cout << nums[0].x << " " << nums[0].y <<"\n"; // начальная точка из которой идут все лучи
-    x0 = nums[0].x;
+    x_0 = nums[0].x;
     y_0 = nums[0].y;
     nums.erase(nums.begin());
     insertion_sort(nums,atan_less);
