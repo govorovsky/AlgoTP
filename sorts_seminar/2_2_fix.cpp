@@ -44,7 +44,12 @@ void QuickSort<T>::_sort(T * a, int N) {
 struct date {
     int d, m, y;
     bool isBirth; 
-    /*birth or death date, need to compare dates, because if we comp two equals date, such as 2.2.2 and 2.2.2, first date will be less than second only if it is a birth date with isBirth = 1.*/
+    /* 
+     * isBirth determine birth or death date. It's need to compare dates, because
+     * if we compare two equals date, such as 2.2.2 and 2.2.2, first 
+     * date will be less than second only if it is a birth date 
+     * with isBirth = 1.
+     */
     int num;
     
 };
