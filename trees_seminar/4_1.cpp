@@ -3,10 +3,10 @@
 
 struct CNode {
     int Key;
-	int Height;
-    int Amount; // будем хоанить в каждом узле число вершин  справа + слева
+    int Height;
+    int Amount; // будем хранить в каждом узле число вершин  справа + слева
     CNode* Left;
-	CNode* Right;
+    CNode* Right;
 	CNode(int key) : Key(key), Height(1), Left(0), Right(0),  Amount(1) {}
 };
 
